@@ -62,4 +62,45 @@ review_mostwanted = []
 for i in range(12):
     review_mostwanted.append(soup_mostwanted.find_all('p')[i].get_text())
 
+#Creating the DataFrames
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Most Wanted Review
+mostwanted_review = pd.DataFrame({'Review' : review_mostwanted})
+mostwanted_year = []
+for row_mostwanted in mostwanted_review['Review']:
+    if not row_mostwanted:
+        mostwanted_year.append("")
+    else:
+        mostwanted_year.append("2012")
+        
+mostwanted_review['Year'] = mostwanted_year
+
+# Pro Street Review
+prostreet_review = pd.DataFrame({'Review' : review_prostreet})
+prostreet_year = []
+for row_prostreet in prostreet_review['Review']:
+    if not row_prostreet:
+        prostreet_year.append("")
+    else:
+        prostreet_year.append("2007")
+        
+prostreet_review['Year'] = prostreet_year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
