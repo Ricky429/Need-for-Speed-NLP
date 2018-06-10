@@ -77,6 +77,7 @@ for row_mostwanted in mostwanted_review['Review']:
         mostwanted_year.append("2012")
         
 mostwanted_review['Year'] = mostwanted_year
+mostwanted_review.drop(mostwanted_review.index[[0, 3, 6, 9]], inplace=True)
 
 # Pro Street Review
 prostreet_review = pd.DataFrame({'Review' : review_prostreet})
@@ -88,6 +89,43 @@ for row_prostreet in prostreet_review['Review']:
         prostreet_year.append("2007")
         
 prostreet_review['Year'] = prostreet_year
+prostreet_review.drop(prostreet_review.index[[0, 3, 7]], inplace=True)
+
+# Payback Review
+payback_review = pd.DataFrame({'Review' : review_payback})
+payback_year = []
+for row_payback in payback_review['Review']:
+    if not row_payback:
+        payback_year.append("")
+    else:
+        payback_year.append("2017")
+        
+payback_review['Year'] = payback_year
+payback_review.drop(payback_review.index[[0]], inplace=True)
+
+# Rivals Review
+rivals_review = pd.DataFrame({'Review' : review_rivals})
+rivals_year = []
+for row_rivals in rivals_review['Review']:
+    if not row_rivals:
+        rivals_year.append("")
+    else:
+        rivals_year.append("2013")
+        
+rivals_review['Year'] = rivals_year
+rivals_review.drop(rivals_review.index[[0, 4, 7, 10]], inplace=True)
+
+# Reboot Review
+reboot_review = pd.DataFrame({'Review' : review_reboot})
+reboot_year = []
+for row_reboot in reboot_review['Review']:
+    if not row_reboot:
+        reboot_year.append("")
+    else:
+        reboot_year.append("2015")
+        
+reboot_review['Year'] = reboot_year
+reboot_review.drop(reboot_review.index[[0]], inplace=True)
 
 
 
