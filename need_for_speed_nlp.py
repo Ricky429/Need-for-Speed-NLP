@@ -127,6 +127,12 @@ for row_reboot in reboot_review['Review']:
 reboot_review['Year'] = reboot_year
 reboot_review.drop(reboot_review.index[[0]], inplace=True)
 
+# Combnining the review DataFrames
+reviews = mostwanted_review.append(payback_review, ignore_index=True)
+reviews = reviews.append(prostreet_review, ignore_index=True)
+reviews = reviews.append(reboot_review, ignore_index=True)
+reviews = reviews.append(rivals_review, ignore_index=True)
+
 
 
 
