@@ -133,6 +133,22 @@ reviews = reviews.append(prostreet_review, ignore_index=True)
 reviews = reviews.append(reboot_review, ignore_index=True)
 reviews = reviews.append(rivals_review, ignore_index=True)
 
+# Combining the columns
+review_data = pd.DataFrame(reviews['Review'] + ' ' + reviews['Year'])
+review_data = review_data.rename(columns={0: 'Reviews'})
+
+# Cleaning the text
+import re
+import nltk
+from nltk.corpus import stopwords
+words = []
+for i in range(len(reviews)):
+    review = re.sub('[^a-zA-Z0-9]', ' ', str(reviews['Review'][i]))
+    review = review.lower()
+    review = review.split()
+    review = [word for word in review if not word in set(stopwords.words('english'))]
+    review = ' '.join(review)
+    words.append(review)
 
 
 
