@@ -151,7 +151,13 @@ for i in range(len(reviews)):
     words.append(review)
 
 
-
+# Count of how many words appear
+# Need to add dates
+from sklearn.feature_extraction.text import CountVectorizer
+cv = CountVectorizer(max_features = 1000)
+X = cv.fit_transform(words).toarray()
+cv.get_feature_names()
+new_frame = pd.DataFrame(X, columns=cv.get_feature_names())
 
 
 
